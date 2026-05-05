@@ -91,6 +91,11 @@
     #projects { background: var(--bg); }
     .proj-group { margin-bottom: 3.5rem; }
 
+
+     .cb-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border-top: 1px solid var(--border); }
+    .cb-stat { background: var(--bg3); padding: 0.85rem 1rem; text-align: center; }
+    .cb-stat-num { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.15rem; color: var(--gold); line-height: 1; }
+    .cb-stat-label { font-family: var(--mono); font-size: 0.6rem; color: var(--subtle); margin-top: 0.25rem; letter-spacing: 0.04em; text-transform: uppercase; }
     /* ACCORDION for Minus Zero */
     .accordion-wrap { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
     .accordion-header { display: flex; align-items: center; justify-content: space-between; padding: 1.4rem 1.75rem; background: var(--bg2); cursor: pointer; user-select: none; transition: background 0.2s; gap: 1rem; }
@@ -490,7 +495,68 @@
         </div>
       </div>
 
+<!-- LAPTOP COOLING BLOCK -->
+<div class="p-card">
+  <img src="Cooling_block.jpg"
+       alt="Custom dual-fan laptop cooling block on Lenovo Legion"
+       style="width:100%;height:220px;object-fit:cover;object-position:center 60%;display:block;cursor:pointer;"
+       onclick="openLightbox(this.src)" />
 
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:2px;">
+    <img src="Cooling_block.jpg"
+         alt="Custom cooling block — push mode"
+         style="width:100%;height:150px;object-fit:cover;object-position:center 80%;display:block;cursor:pointer;"
+         onclick="openLightbox(this.src)" />
+    <img src="Cooling_pad.jpg"
+         alt="Traditional cooling pad — baseline comparison"
+         style="width:100%;height:150px;object-fit:cover;display:block;cursor:pointer;"
+         onclick="openLightbox(this.src)" />
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--bg3);border-top:1px solid var(--border);">
+    <div style="padding:0.3rem 0.6rem;font-family:var(--mono);font-size:0.6rem;color:#2e7d32;text-align:center;border-right:1px solid var(--border);">✓ COOLING BLOCK (PUSH)</div>
+    <div style="padding:0.3rem 0.6rem;font-family:var(--mono);font-size:0.6rem;color:#c62828;text-align:center;">✗ COOLING PAD (0% GAIN)</div>
+  </div>
+
+  <img src="CineBench_Pnt.png"
+       alt="Cinebench R23 score comparison — 4 configurations"
+       style="width:100%;height:190px;object-fit:contain;background:var(--bg3);display:block;cursor:pointer;padding:0.5rem;"
+       onclick="openLightbox(this.src)" />
+
+  <img src="thermals.png"
+       alt="The Thermal Paradox — Temperature vs Actual Work"
+       style="width:100%;height:190px;object-fit:contain;background:var(--bg3);display:block;cursor:pointer;padding:0.5rem;border-top:1px solid var(--border);"
+       onclick="openLightbox(this.src)" />
+
+  <div class="cb-stats">
+    <div class="cb-stat">
+      <div class="cb-stat-num">+4.3%</div>
+      <div class="cb-stat-label">Cinebench Gain</div>
+    </div>
+    <div class="cb-stat">
+      <div class="cb-stat-num">9×</div>
+      <div class="cb-stat-label">Less Time @95°C</div>
+    </div>
+    <div class="cb-stat">
+      <div class="cb-stat-num">+20%</div>
+      <div class="cb-stat-label">CPU Power Sustained</div>
+    </div>
+  </div>
+
+  <div class="p-body">
+    <div class="p-num">HARDWARE RESEARCH · NIVARANTECH</div>
+    <div class="p-title">Laptop Cooling Block — Airflow Direction Study</div>
+    <p class="p-desc">Designed and built a modular dual-fan laptop cooling block. Ran a controlled 4-configuration thermal benchmark (HWiNFO logs, Furmark + Cinebench Multi-Core) to validate performance. Key finding: fan direction matters more than fan count or block material.<br><br>
+    Push mode delivered +4.3% Cinebench gain and reduced time at ≥95°C from 32% to 4.7%. Pull mode was worse than no cooling at all — external fans starved the laptop's internal fans. Traditional cooling pads produced zero Cinebench gain despite a 10°C temperature drop — the chip was simply throttling itself to lower power.</p>
+  </div>
+  <div class="p-footer">
+    <span class="tag">Thermal Engineering</span>
+    <span class="tag">HWiNFO Logging</span>
+    <span class="tag">Cinebench</span>
+    <span class="tag">Airflow Design</span>
+    <span class="tag dark">Push-Locked</span>
+    <span class="tag dark">Data Validated</span>
+  </div>
+</div>
 
     </div>
   </div>
