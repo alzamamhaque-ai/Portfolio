@@ -20,29 +20,35 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg:       #f8f7f4;
-      --bg2:      #ffffff;
-      --bg3:      #f1efe9;
-      --border:   #e2dfd7;
-      --border2:  #ccc9c0;
-      --gold:     #b8892a;
-      --gold2:    #d4a853;
-      --goldbg:   #fdf6e7;
-      --text:     #1a1a18;
-      --muted:    #6b6860;
-      --subtle:   #a8a49c;
-      --white:    #ffffff;
-      --radius:   10px;
+      --bg:       #0a0e12;
+      --bg2:      #11161c;
+      --bg3:      #171d24;
+      --border:   #242c35;
+      --border2:  #364252;
+      --gold:     #e8a33d;
+      --gold2:    #f5c169;
+      --goldbg:   rgba(232,163,61,0.08);
+      --cyan:     #5fd4c8;
+      --cyan2:    #8ee4da;
+      --cyanbg:   rgba(95,212,200,0.08);
+      --text:     #eef1f3;
+      --muted:    #97a3ae;
+      --subtle:   #57626d;
+      --white:    #eef1f3;
+      --ink:      #0a0e12;
+      --ok:       #6bc07a;
+      --bad:      #e5766e;
+      --radius:   8px;
       --mono:     'DM Mono', monospace;
-      --shadow:   0 1px 3px rgba(0,0,0,0.07), 0 4px 16px rgba(0,0,0,0.05);
-      --shadow-lg:0 4px 24px rgba(0,0,0,0.1);
+      --shadow:   0 1px 3px rgba(0,0,0,0.45), 0 8px 28px rgba(0,0,0,0.4);
+      --shadow-lg:0 12px 36px rgba(0,0,0,0.55);
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.7; overflow-x: hidden; }
 
     /* ── NAV ── */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 clamp(1.5rem, 5vw, 4rem); height: 58px; background: rgba(248,247,244,0.92); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 clamp(1.5rem, 5vw, 4rem); height: 58px; background: rgba(10,14,18,0.82); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
     .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.05rem; color: var(--text); letter-spacing: -0.02em; text-decoration: none; }
     .nav-logo span { color: var(--gold); }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
@@ -51,9 +57,9 @@
 
     /* ── HERO ── */
     #hero { min-height: 100vh; display: flex; align-items: center; padding: 0 clamp(1.5rem, 8vw, 8rem); position: relative; overflow: hidden; background: var(--bg); }
-    .hero-grid-bg { position: absolute; inset: 0; z-index: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 48px 48px; opacity: 0.5; mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%); }
+    .hero-grid-bg { position: absolute; inset: 0; z-index: 0; background-image: linear-gradient(var(--border2) 1px, transparent 1px), linear-gradient(90deg, var(--border2) 1px, transparent 1px); background-size: 48px 48px; opacity: 0.65; mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%); }
     .hero-content { position: relative; z-index: 1; max-width: 820px; }
-    .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--goldbg); border: 1px solid rgba(184,137,42,0.3); border-radius: 100px; padding: 0.3rem 1rem; font-family: var(--mono); font-size: 0.72rem; color: var(--gold); letter-spacing: 0.06em; margin-bottom: 2rem; animation: fadeUp 0.6s ease both; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--goldbg); border: 1px solid rgba(232,163,61,0.35); border-radius: 100px; padding: 0.3rem 1rem; font-family: var(--mono); font-size: 0.72rem; color: var(--gold); letter-spacing: 0.06em; margin-bottom: 2rem; animation: fadeUp 0.6s ease both; }
     .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; animation: blink 2s infinite; }
     @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
     .hero-name { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(3rem, 8vw, 6rem); line-height: 0.95; letter-spacing: -0.03em; color: var(--text); animation: fadeUp 0.6s 0.1s ease both; }
@@ -61,7 +67,7 @@
     .hero-title { font-family: 'Syne', sans-serif; font-weight: 600; font-size: clamp(1rem, 2vw, 1.35rem); color: var(--muted); margin-top: 1rem; animation: fadeUp 0.6s 0.2s ease both; }
     .hero-desc { max-width: 560px; color: var(--muted); font-size: 0.92rem; margin-top: 1.25rem; animation: fadeUp 0.6s 0.3s ease both; }
     .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2.5rem; animation: fadeUp 0.6s 0.4s ease both; }
-    .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--gold); color: #fff; font-weight: 600; font-size: 0.85rem; padding: 0.75rem 1.75rem; border-radius: var(--radius); text-decoration: none; transition: background 0.2s, transform 0.2s; box-shadow: 0 2px 8px rgba(184,137,42,0.3); }
+    .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--gold); color: var(--ink); font-weight: 700; font-size: 0.85rem; padding: 0.75rem 1.75rem; border-radius: var(--radius); text-decoration: none; transition: background 0.2s, transform 0.2s; box-shadow: 0 2px 8px rgba(232,163,61,0.35); }
     .btn-primary:hover { background: var(--gold2); transform: translateY(-2px); }
     .btn-secondary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--bg2); color: var(--text); font-weight: 500; font-size: 0.85rem; padding: 0.75rem 1.75rem; border-radius: var(--radius); border: 1px solid var(--border2); text-decoration: none; transition: border-color 0.2s, color 0.2s, transform 0.2s; }
     .btn-secondary:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
@@ -84,7 +90,7 @@
     .skill-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.92rem; color: var(--text); margin-bottom: 0.4rem; }
     .skill-desc { font-size: 0.8rem; color: var(--muted); }
     .skill-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.75rem; }
-    .tag { background: var(--goldbg); border: 1px solid rgba(184,137,42,0.2); color: var(--gold); font-family: var(--mono); font-size: 0.66rem; padding: 0.18rem 0.55rem; border-radius: 4px; letter-spacing: 0.03em; }
+    .tag { background: var(--goldbg); border: 1px solid rgba(232,163,61,0.25); color: var(--gold); font-family: var(--mono); font-size: 0.66rem; padding: 0.18rem 0.55rem; border-radius: 4px; letter-spacing: 0.03em; }
     .tag.dark { background: var(--bg3); border-color: var(--border2); color: var(--muted); }
 
     /* ── PROJECTS ── */
@@ -111,7 +117,7 @@
     .accordion-item + .accordion-item { border-top: 1px solid var(--border); }
     .acc-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 1rem 0 0; }
     .acc-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.6rem; margin-top: 1rem; }
-    .acc-gallery img { aspect-ratio: 4/3; object-fit: cover; border-radius: 6px; border: 1px solid var(--border); cursor: pointer; width: 100%; transition: opacity 0.2s, border-color 0.2s; }
+    .acc-gallery img { aspect-ratio: 4/3; object-fit: contain; background: var(--bg3); padding: 0.4rem; box-sizing: border-box; border-radius: 6px; border: 1px solid var(--border); cursor: zoom-in; width: 100%; transition: opacity 0.2s, border-color 0.2s; }
     .acc-gallery img:hover { opacity: 0.85; border-color: var(--gold2); }
     .acc-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.65; margin-top: 1rem; }
     .acc-video { width: 100%; border-radius: 8px; margin-top: 1rem; border: 1px solid var(--border); max-height: 300px; object-fit: cover; }
@@ -122,8 +128,8 @@
     .p-card:hover { border-color: var(--gold2); transform: translateY(-3px); box-shadow: var(--shadow-lg); }
     .p-card.wide { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; }
     .p-card.wide .p-body { display: flex; flex-direction: column; justify-content: center; }
-    .p-img { width: 100%; height: 210px; object-fit: cover; display: block; background: var(--bg3); cursor: pointer; }
-    .p-img.tall { height: 100%; min-height: 260px; }
+    .p-img { width: 100%; aspect-ratio: 4/3; height: auto; object-fit: contain; display: block; background: var(--bg3); padding: 0.4rem; box-sizing: border-box; cursor: zoom-in; }
+    .p-img.tall { aspect-ratio: auto; height: 100%; min-height: 260px; }
     .p-placeholder { width: 100%; height: 210px; background: var(--bg3); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; color: var(--subtle); font-family: var(--mono); font-size: 0.73rem; }
     .p-body { padding: 1.4rem; }
     .p-num { font-family: var(--mono); font-size: 0.67rem; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 0.4rem; }
@@ -145,7 +151,7 @@
     .tl-company { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--text); }
     .tl-period { font-family: var(--mono); font-size: 0.68rem; color: var(--gold); letter-spacing: 0.06em; }
     .tl-role { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.85rem; }
-    .tl-badge { display: inline-block; background: var(--goldbg); border: 1px solid rgba(184,137,42,0.25); color: var(--gold); font-size: 0.68rem; padding: 0.12rem 0.6rem; border-radius: 4px; font-family: var(--mono); margin-left: 0.4rem; vertical-align: middle; }
+    .tl-badge { display: inline-block; background: var(--goldbg); border: 1px solid rgba(232,163,61,0.3); color: var(--gold); font-size: 0.68rem; padding: 0.12rem 0.6rem; border-radius: 4px; font-family: var(--mono); margin-left: 0.4rem; vertical-align: middle; }
     .tl-points { list-style: none; }
     .tl-points li { font-size: 0.85rem; color: var(--muted); padding: 0.25rem 0 0.25rem 1.2rem; position: relative; line-height: 1.6; }
     .tl-points li::before { content: '→'; position: absolute; left: 0; color: var(--gold2); font-size: 0.72rem; }
@@ -156,7 +162,7 @@
     .patent-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem; box-shadow: var(--shadow); position: relative; overflow: hidden; transition: border-color 0.3s, box-shadow 0.3s; }
     .patent-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold), transparent); }
     .patent-card:hover { border-color: var(--gold2); box-shadow: var(--shadow-lg); }
-    .patent-badge { display: inline-flex; align-items: center; gap: 0.4rem; background: var(--goldbg); border: 1px solid rgba(184,137,42,0.25); color: var(--gold); font-family: var(--mono); font-size: 0.68rem; padding: 0.22rem 0.7rem; border-radius: 4px; letter-spacing: 0.05em; margin-bottom: 0.9rem; }
+    .patent-badge { display: inline-flex; align-items: center; gap: 0.4rem; background: var(--goldbg); border: 1px solid rgba(232,163,61,0.3); color: var(--gold); font-family: var(--mono); font-size: 0.68rem; padding: 0.22rem 0.7rem; border-radius: 4px; letter-spacing: 0.05em; margin-bottom: 0.9rem; }
     .patent-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem; color: var(--text); margin-bottom: 0.65rem; line-height: 1.3; }
     .patent-meta { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); display: grid; grid-template-columns: auto 1fr; gap: 0.25rem 1rem; margin-top: 0.9rem; }
     .patent-meta .k { color: var(--subtle); }
@@ -175,11 +181,27 @@
     footer a { color: var(--gold); text-decoration: none; }
 
     /* ── LIGHTBOX ── */
-    .lightbox { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(10,10,8,0.88); align-items: center; justify-content: center; }
+    .lightbox { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(5,7,9,0.92); align-items: center; justify-content: center; }
     .lightbox.active { display: flex; }
     .lightbox img, .lightbox video { max-width: 90vw; max-height: 88vh; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow-lg); }
     .lb-close { position: fixed; top: 1.5rem; right: 2rem; color: #aaa; font-size: 1.8rem; cursor: pointer; background: none; border: none; transition: color 0.2s; z-index: 1000; }
     .lb-close:hover { color: #fff; }
+
+    /* ── CALIBRATION CORNER MARKS (hero) ── */
+    .corner { position: absolute; width: 22px; height: 22px; opacity: 0.5; pointer-events: none; z-index: 2; }
+    .corner-tl { top: 90px; left: clamp(1.5rem, 8vw, 8rem); border-top: 1.5px solid var(--gold); border-left: 1.5px solid var(--gold); }
+    .corner-tr { top: 90px; right: clamp(1.5rem, 8vw, 8rem); border-top: 1.5px solid var(--gold); border-right: 1.5px solid var(--gold); }
+    .corner-bl { bottom: 48px; left: clamp(1.5rem, 8vw, 8rem); border-bottom: 1.5px solid var(--gold); border-left: 1.5px solid var(--gold); }
+    .corner-br { bottom: 48px; right: clamp(1.5rem, 8vw, 8rem); border-bottom: 1.5px solid var(--gold); border-right: 1.5px solid var(--gold); }
+    @media (max-width: 900px) { .corner { display: none; } }
+
+    /* ── TELEMETRY HUD (signature element) ── */
+    .hud { position: fixed; bottom: 1.1rem; right: 1.1rem; z-index: 80; background: rgba(17,22,28,0.85); backdrop-filter: blur(10px); border: 1px solid var(--border); border-radius: 6px; padding: 0.6rem 0.8rem; font-family: var(--mono); font-size: 0.63rem; color: var(--muted); display: flex; flex-direction: column; gap: 0.3rem; box-shadow: var(--shadow); letter-spacing: 0.02em; line-height: 1.3; pointer-events: none; }
+    .hud-row { display: flex; align-items: center; gap: 0.55rem; white-space: nowrap; }
+    .hud-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 6px var(--cyan); animation: blink 2s infinite; flex-shrink: 0; }
+    .hud-k { color: var(--subtle); min-width: 30px; }
+    #hud-view { color: var(--gold); }
+    @media (max-width: 640px) { .hud { display: none; } }
 
     /* ── ANIMATIONS ── */
     @keyframes fadeUp { from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
@@ -212,11 +234,15 @@
 <!-- HERO -->
 <section id="hero">
   <div class="hero-grid-bg"></div>
+  <span class="corner corner-tl"></span>
+  <span class="corner corner-tr"></span>
+  <span class="corner corner-bl"></span>
+  <span class="corner corner-br"></span>
   <div class="hero-content">
-    <div class="hero-badge">Available for opportunities · Bengaluru, India</div>
+    <div class="hero-badge">Systems Integration Engineer @ Ci4 · Bengaluru, India</div>
     <h1 class="hero-name">Alzamamul<br/><span class="gold">Haque</span></h1>
     <p class="hero-title">Product Systems Engineer  ·  Autonomous Vehicle Systems Integration</p>
-    <p class="hero-desc">End-to-end AV hardware integration engineer — Drive-By-Wire actuation, power distribution, LiDAR / Camera / GNSS sensor integration, and real-world field testing. Concept-to-product execution across mechanical engineering, embedded hardware, and automotive systems.</p>
+    <p class="hero-desc">Systems integration engineer specializing in autonomous vehicle and robotics hardware — Drive-By-Wire actuation, LiDAR / Camera / GNSS sensor fusion, and end-to-end concept-to-product execution across mechanical engineering, embedded systems, and field validation.</p>
     <div class="hero-cta">
       <a href="#projects" class="btn-primary">View My Work ↓</a>
       <a href="#contact" class="btn-secondary">Get In Touch</a>
@@ -436,7 +462,7 @@
       <!-- AMTRAC wide -->
       <div class="p-card wide">
         <img src="img_amtrac_cad.png" alt="AMTRAC CAD wireframe" class="p-img tall" onclick="openLightbox(this.src)" />
-        <img src="img_amtrac_01.jpg" alt="AMTRAC prototype bike" class="p-img" onclick="openLightbox(this.src)" style="height:auto;max-height:350px;width:100%;object-fit:contain;background:#f1efe9;display:block;" />
+        <img src="img_amtrac_01.jpg" alt="AMTRAC prototype bike" class="p-img" onclick="openLightbox(this.src)" style="height:auto;max-height:350px;width:100%;object-fit:contain;background:var(--bg3);display:block;" />
         <img src="img_amtrac_02.jpg" alt="AMTRAC gear mechanism close-up" class="p-img" onclick="openLightbox(this.src)" style="height:210px;" />
         <div class="p-body">
           <div class="p-num">INVENTION 01 · PATENT #543732</div>
@@ -452,8 +478,8 @@
       <!-- Mid Drive -->
       <div class="p-card">
         <iframe width="100%" height="210" src="https://www.youtube.com/embed/IvCRCMtzpOs" frameborder="0" allowfullscreen style="display:block;border:none;"></iframe>
-        <img src="img_middrive_01.jpg" alt="Mid-drive motor mounted on cycle" style="width:100%;height:210px;object-fit:cover;display:block;margin-top:0.5rem;border-radius:0;" onclick="openLightbox(this.src)" />
-        <img src="img_middrive_02.jpg" alt="Mid-drive motor close-up" style="width:100%;height:210px;object-fit:cover;display:block;margin-top:0.5rem;border-radius:0;" onclick="openLightbox(this.src)" />
+        <img src="img_middrive_01.jpg" alt="Mid-drive motor mounted on cycle" style="width:100%;aspect-ratio:4/3;height:auto;object-fit:contain;background:var(--bg3);padding:0.35rem;box-sizing:border-box;display:block;margin-top:0.5rem;border-radius:0;" onclick="openLightbox(this.src)" />
+        <img src="img_middrive_02.jpg" alt="Mid-drive motor close-up" style="width:100%;aspect-ratio:4/3;height:auto;object-fit:contain;background:var(--bg3);padding:0.35rem;box-sizing:border-box;display:block;margin-top:0.5rem;border-radius:0;" onclick="openLightbox(this.src)" />
         <div class="p-body">
           <div class="p-num">INVENTION 02</div>
           <div class="p-title">Electric Mid-Drive Retrofit System</div>
@@ -467,8 +493,8 @@
       <!-- Coaxial Drone -->
       <div class="p-card">
        <iframe width="100%" height="210" src="https://www.youtube.com/embed/w-NkYJ0rP7A" frameborder="0" allowfullscreen style="display:block;border:none;"></iframe>
-        <img src="img_drone_01.jpg" alt="Coaxial drone prototype top view" style="width:100%;height:210px;object-fit:cover;display:block;margin-top:0.5rem;border-radius:0;" onclick="openLightbox(this.src)" />
-        <img src="img_drone_02.jpg" alt="Coaxial drone prototype side view" style="width:100%;height:210px;object-fit:cover;display:block;margin-top:0.5rem;border-radius:0;" onclick="openLightbox(this.src)" />
+        <img src="img_drone_01.jpg" alt="Coaxial drone prototype top view" style="width:100%;aspect-ratio:4/3;height:auto;object-fit:contain;background:var(--bg3);padding:0.35rem;box-sizing:border-box;display:block;margin-top:0.5rem;border-radius:0;" onclick="openLightbox(this.src)" />
+        <img src="img_drone_02.jpg" alt="Coaxial drone prototype side view" style="width:100%;aspect-ratio:4/3;height:auto;object-fit:contain;background:var(--bg3);padding:0.35rem;box-sizing:border-box;display:block;margin-top:0.5rem;border-radius:0;" onclick="openLightbox(this.src)" />
         <div class="p-body">
           <div class="p-num">INVENTION 03 · PATENT FILED</div>
           <div class="p-title">Coaxial Drone — Tilt-Axis Mechanism</div>
@@ -482,8 +508,8 @@
 
       <!-- KIRA -->
      <div class="p-card">
-        <img src="img_kira_04.jpg" alt="KIRA K1 full prototype" style="width:100%;height:210px;object-fit:cover;display:block;margin-top:0.5rem;" onclick="openLightbox(this.src)" />
-        <img src="img_kira_05.jpg" alt="KIRA internal frame with load cells" style="width:100%;height:210px;object-fit:cover;display:block;margin-top:0.5rem;" onclick="openLightbox(this.src)" />
+        <img src="img_kira_04.jpg" alt="KIRA K1 full prototype" style="width:100%;aspect-ratio:4/3;height:auto;object-fit:contain;background:var(--bg3);padding:0.35rem;box-sizing:border-box;display:block;margin-top:0.5rem;" onclick="openLightbox(this.src)" />
+        <img src="img_kira_05.jpg" alt="KIRA internal frame with load cells" style="width:100%;aspect-ratio:4/3;height:auto;object-fit:contain;background:var(--bg3);padding:0.35rem;box-sizing:border-box;display:block;margin-top:0.5rem;" onclick="openLightbox(this.src)" />
        <iframe width="100%" height="210" src="https://www.youtube.com/embed/xrp4xI3lRzA" frameborder="0" allowfullscreen style="display:block;border:none;"></iframe> 
        <div class="p-body">
           <div class="p-num">PERSONAL PROJECT · NIVARANTECH</div>
@@ -497,10 +523,10 @@
 
 <!-- MOTO MAGIC -->
 <div class="p-card">
-  <img src="Dashboard_with_ODO.png" alt="Moto Magic dashboard ODO view" style="width:100%;height:210px;object-fit:cover;display:block;cursor:pointer;" onclick="openLightbox(this.src)" />
+  <img src="Dashboard_with_ODO.png" alt="Moto Magic dashboard ODO view" style="width:100%;aspect-ratio:4/3;height:auto;object-fit:contain;background:var(--bg3);padding:0.35rem;box-sizing:border-box;display:block;cursor:pointer;" onclick="openLightbox(this.src)" />
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);">
-    <img src="Dashboard_with_Trip.png" alt="Moto Magic trip view" style="width:100%;height:150px;object-fit:cover;display:block;cursor:pointer;" onclick="openLightbox(this.src)" />
-    <img src="Setup_page.png" alt="Moto Magic setup page" style="width:100%;height:150px;object-fit:cover;display:block;cursor:pointer;" onclick="openLightbox(this.src)" />
+    <img src="Dashboard_with_Trip.png" alt="Moto Magic trip view" style="width:100%;aspect-ratio:4/3;height:auto;object-fit:contain;background:var(--bg3);padding:0.3rem;box-sizing:border-box;display:block;cursor:pointer;" onclick="openLightbox(this.src)" />
+    <img src="Setup_page.png" alt="Moto Magic setup page" style="width:100%;aspect-ratio:4/3;height:auto;object-fit:contain;background:var(--bg3);padding:0.3rem;box-sizing:border-box;display:block;cursor:pointer;" onclick="openLightbox(this.src)" />
   </div>
   <div class="p-body">
     <div class="p-num">PERSONAL PROJECT · NIVARANTECH</div>
@@ -523,22 +549,22 @@
 <div class="p-card">
   <img src="Cooling_block.jpg"
        alt="Custom dual-fan laptop cooling block on Lenovo Legion"
-       style="width:100%;height:220px;object-fit:cover;object-position:center 60%;display:block;cursor:pointer;"
+       style="width:100%;aspect-ratio:4/3;height:auto;object-fit:contain;background:var(--bg3);padding:0.35rem;box-sizing:border-box;object-position:center 60%;display:block;cursor:pointer;"
        onclick="openLightbox(this.src)" />
 
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:2px;">
     <img src="Cooling_block.jpg"
          alt="Custom cooling block — push mode"
-         style="width:100%;height:150px;object-fit:cover;object-position:center 80%;display:block;cursor:pointer;"
+         style="width:100%;aspect-ratio:4/3;height:auto;object-fit:contain;background:var(--bg3);padding:0.3rem;box-sizing:border-box;object-position:center 80%;display:block;cursor:pointer;"
          onclick="openLightbox(this.src)" />
     <img src="Cooling_pad.jpg"
          alt="Traditional cooling pad — baseline comparison"
-         style="width:100%;height:150px;object-fit:cover;display:block;cursor:pointer;"
+         style="width:100%;aspect-ratio:4/3;height:auto;object-fit:contain;background:var(--bg3);padding:0.3rem;box-sizing:border-box;display:block;cursor:pointer;"
          onclick="openLightbox(this.src)" />
   </div>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--bg3);border-top:1px solid var(--border);">
-    <div style="padding:0.3rem 0.6rem;font-family:var(--mono);font-size:0.6rem;color:#2e7d32;text-align:center;border-right:1px solid var(--border);">✓ COOLING BLOCK (PUSH)</div>
-    <div style="padding:0.3rem 0.6rem;font-family:var(--mono);font-size:0.6rem;color:#c62828;text-align:center;">✗ COOLING PAD (0% GAIN)</div>
+    <div style="padding:0.3rem 0.6rem;font-family:var(--mono);font-size:0.6rem;color:var(--ok);text-align:center;border-right:1px solid var(--border);">✓ COOLING BLOCK (PUSH)</div>
+    <div style="padding:0.3rem 0.6rem;font-family:var(--mono);font-size:0.6rem;color:var(--bad);text-align:center;">✗ COOLING PAD (0% GAIN)</div>
   </div>
 
   <img src="CineBench_Pnt.png"
@@ -598,10 +624,23 @@
     <div class="tl-item reveal">
       <div class="tl-dot"></div>
       <div class="tl-meta">
-        <span class="tl-company">Minus Zero Robotics Pvt. Ltd.</span>
-        <span class="tl-period">AUG 2024 – PRESENT</span>
+        <span class="tl-company">Ci4 — Autonomous Defense <span style="color:var(--subtle);font-weight:400;">(formerly Ciphor)</span></span>
+        <span class="tl-period">JUN 2026 – PRESENT</span>
       </div>
-      <div class="tl-role">System Integration Engineer I → II <span class="tl-badge">Current</span></div>
+      <div class="tl-role">System Integration Engineer — L2 <span class="tl-badge">Current</span></div>
+      <ul class="tl-points">
+        <li>Systems integration engineer on defense programs — autonomous underwater drone systems</li>
+        <li style="color:var(--subtle);">Program details are classified; specifics cannot be disclosed</li>
+      </ul>
+    </div>
+
+    <div class="tl-item reveal">
+      <div class="tl-dot dim"></div>
+      <div class="tl-meta">
+        <span class="tl-company">Minus Zero Robotics Pvt. Ltd.</span>
+        <span class="tl-period">AUG 2024 – APR 2026</span>
+      </div>
+      <div class="tl-role">System Integration Engineer I → II</div>
       <ul class="tl-points">
         <li>Drive-By-Wire integration on Tata Nexon — brake actuator, AMT gear shift, full field performance testing</li>
         <li>Designed, 3D-printed, CNC-machined precision aluminium sensor rig for Camera, LiDAR & GNSS systems</li>
@@ -702,7 +741,7 @@
   <div class="reveal">
     <div class="section-label">// Let's Connect</div>
     <h2 class="section-title">Get In Touch</h2>
-    <p class="section-sub" style="margin:0 auto 0;">Open to AV engineering roles, hardware collaborations, and technical conversations.</p>
+    <p class="section-sub" style="margin:0 auto 0;">Open to hardware collaborations, patent conversations, and interesting engineering problems.</p>
   </div>
   <div class="contact-grid reveal">
     <a href="mailto:alzamam.haque@gmail.com" class="contact-card">✉ alzamam.haque@gmail.com</a>
@@ -717,6 +756,13 @@
   <p>© 2026 Alzamamul Haque · <a href="mailto:alzamam.haque@gmail.com">alzamam.haque@gmail.com</a></p>
   <p>Patent No. 543732 · Intellectual Property India</p>
 </footer>
+
+<!-- TELEMETRY HUD -->
+<div class="hud" aria-hidden="true">
+  <div class="hud-row"><span class="hud-dot"></span><span>SYS · ONLINE</span></div>
+  <div class="hud-row"><span class="hud-k">VIEW</span><span id="hud-view">00 · HERO</span></div>
+  <div class="hud-row"><span class="hud-k">POS</span><span>12.9716°N 77.5946°E</span></div>
+</div>
 
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
@@ -763,6 +809,14 @@
     document.body.style.overflow = '';
   }
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  // Telemetry HUD — live section readout
+  const sectionNames = { hero: '00 · HERO', skills: '01 · SKILLS', projects: '02 · PROJECTS', experience: '03 · EXPERIENCE', patents: '04 · PATENTS', contact: '05 · CONTACT' };
+  const hudView = document.getElementById('hud-view');
+  const secObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting && hudView) hudView.textContent = sectionNames[e.target.id] || e.target.id.toUpperCase(); });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('section[id]').forEach(s => secObs.observe(s));
 </script>
 </body>
 </html>
